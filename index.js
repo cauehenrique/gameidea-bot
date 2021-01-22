@@ -3,6 +3,10 @@ require('dotenv').config();
 const discord = require("discord.js");
 const client = new discord.Client();
 
+var envArray = ["Forest", "Supermarket", "Medieval Castle", "Ocean", "Jungle", "Cave", "City", "Farm", "Beach"];
+var genreArray = ["FPS", "Action RPG", "Turn RPG", "Visual Novel", "Top-Down Shooter", "Platformer", "Soccer", "Strategy", "Adventure", "Simulation", "Idle Clicker"];
+var goalArray = ["Save the Princess", "Gather Resources", "Destroy All Objects on the Screen", "Kill All the Enemies", "Become Rich"];
+
 client.on("ready", () => {
     console.log(`Logged as: ${client.user.tag}!`);
 });
@@ -13,12 +17,20 @@ client.on("message", (msg) => {
             var ideaString = generateNewIdea();
             msg.channel.send(ideaString);
         }
+
+        if (msg.content == "-enviro") {
+            msg.channel.send(envArray.toString());
+        }
+
+        if (msg.content == "-genres") {
+            msg.channel.send(genreArray.toString());
+        }
+
+        if (msg.content == "-goals") {
+            msg.channel.send(goalArray.toString());
+        }
     }
 });
-
-var envArray = ["Forest", "Supermarket", "Medieval Castle", "Ocean", "Jungle", "Cave", "City"];
-var genreArray = ["FPS", "Action RPG", "Turn RPG", "Visual Novel", "Top-Down Shooter", "Platformer", "Soccer", "Strategy", "Adventure", "Simulation"];
-var goalArray = ["Save the Princess", "Gather Resources", "Destroy All Objects on the Screen", "Kill All the Enemies"];
 
 function generateNewIdea() {
     let envRandom = envArray[Math.floor(Math.random() * envArray.length)];
