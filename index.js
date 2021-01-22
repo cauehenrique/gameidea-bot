@@ -13,20 +13,20 @@ client.on("ready", () => {
 
 client.on("message", (msg) => {
     if (!msg.author.bot) {
-        if (msg.content == "-gameidea") {
+        if (msg.content == "-gi" || msg.content == "-idea") {
             var ideaString = generateNewIdea();
             msg.channel.send(ideaString);
         }
 
-        if (msg.content == "-enviro") {
+        if (msg.content == "-env" || msg.content == "-enviro") {
             msg.channel.send(envArray.toString());
         }
 
-        if (msg.content == "-genres") {
+        if (msg.content == "-ge" || msg.content == "-genres") {
             msg.channel.send(genreArray.toString());
         }
 
-        if (msg.content == "-goals") {
+        if (msg.content == "-go" || msg.content == "-goals") {
             msg.channel.send(goalArray.toString());
         }
     }
